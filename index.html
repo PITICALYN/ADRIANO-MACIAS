@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro Adriano Macias</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+    <header class="main-header">
+        <div class="container header-content">
+            <div class="logo">
+                <img src="logo.jpg" alt="Adriano Macias Logo">
+                <div class="header-text">
+                    <span class="candidate-name">Adriano Macias</span>
+                    <span class="candidate-slogan">O Homem dos Projetos Sociais</span>
+                </div>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container split-layout">
+            <section class="info-section">
+                <h1>Adriano Macias</h1>
+                <p>Adriano Macias é um líder dedicado e Gestor Público (MBA) com profundo compromisso com a população e
+                    os menos favorecidos. Sua trajetória é marcada pela defesa incansável de uma sociedade mais justa e
+                    segura.</p>
+                <ul style="list-style: none; padding: 0; margin-top: 15px; color: #555;">
+                    <li style="margin-bottom: 8px;"><i class="fas fa-heart"
+                            style="color: var(--secondary-color); margin-right: 10px;"></i>Fundador da ONG RBS</li>
+                    <li style="margin-bottom: 8px;"><i class="fas fa-shield-alt"
+                            style="color: var(--secondary-color); margin-right: 10px;"></i>Pres. Conselho de Segurança
+                        40AISP</li>
+                    <li style="margin-bottom: 8px;"><i class="fas fa-university"
+                            style="color: var(--secondary-color); margin-right: 10px;"></i>Gestor Público (MBA)</li>
+                    <li style="margin-bottom: 8px;"><i class="fas fa-notes-medical"
+                            style="color: var(--secondary-color); margin-right: 10px;"></i>Presidente do Conselho
+                        Distrital de Saúde CAP 5.2</li>
+                </ul>
+            </section>
+
+            <section class="form-section">
+                <div class="form-container">
+                    <form id="registrationForm">
+                        <!-- Personal Data -->
+                        <h3>Dados Pessoais</h3>
+                        <div class="form-group">
+                            <label for="name">Nome Completo</label>
+                            <input type="text" id="name" name="name" required placeholder="Seu nome completo">
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" id="use_social_name" name="use_social_name">
+                            <label for="use_social_name">Desejo usar Nome Social</label>
+                        </div>
+
+                        <div class="form-group hidden" id="social_name_group">
+                            <label for="social_name">Nome Social</label>
+                            <input type="text" id="social_name" name="social_name" placeholder="Seu nome social">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required placeholder="Seu melhor email">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Telefone (Whatsapp)</label>
+                            <input type="tel" id="phone" name="phone" placeholder="(XX) XXXXX-XXXX">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dob">Data de Nascimento</label>
+                            <input type="date" id="dob" name="dob">
+                        </div>
+
+                        <!-- Address -->
+                        <h3>Endereço</h3>
+                        <div class="form-group">
+                            <label for="cep">CEP</label>
+                            <input type="text" id="cep" name="cep" placeholder="XXXXX-XXX">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="address">Endereço</label>
+                            <input type="text" id="address" name="address" placeholder="Rua, Número, Complemento">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="neighborhood">Bairro</label>
+                            <input type="text" id="neighborhood" name="neighborhood" placeholder="Seu bairro">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="city">Cidade</label>
+                            <input type="text" id="city" name="city" placeholder="Sua cidade">
+                        </div>
+
+                        <!-- Demographics -->
+                        <h3>Dados Demográficos</h3>
+                        <div class="form-group">
+                            <label for="education">Escolaridade</label>
+                            <select id="education" name="education">
+                                <option value="">Selecione...</option>
+                                <option value="fundamental">Fundamental</option>
+                                <option value="medio">Médio</option>
+                                <option value="tecnico">Médio Técnico</option>
+                                <option value="superior_incompleto">Superior Incompleto</option>
+                                <option value="superior_completo">Superior Completo</option>
+                                <option value="pos_graduacao">Pós Graduação</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group hidden" id="technical_course_group">
+                            <label for="technical_course">Qual curso técnico?</label>
+                            <input type="text" id="technical_course" name="technical_course">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="gender">Identidade de Gênero</label>
+                            <select id="gender" name="gender">
+                                <option value="">Selecione...</option>
+                                <option value="feminino">Feminino</option>
+                                <option value="masculino">Masculino</option>
+                                <option value="nao_binario">Não-binário</option>
+                                <option value="transgenero">Transgênero</option>
+                                <option value="outro">Outro</option>
+                                <option value="prefiro_nao_dizer">Prefiro não dizer</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group hidden" id="gender_other_group">
+                            <label for="gender_other">Qual?</label>
+                            <input type="text" id="gender_other" name="gender_other">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="race">Cor/Raça</label>
+                            <select id="race" name="race">
+                                <option value="">Selecione...</option>
+                                <option value="branca">Branca</option>
+                                <option value="preta">Preta</option>
+                                <option value="parda">Parda</option>
+                                <option value="amarela">Amarela</option>
+                                <option value="indigena">Indígena</option>
+                                <option value="outra">Outra</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group hidden" id="race_other_group">
+                            <label for="race_other">Qual?</label>
+                            <input type="text" id="race_other" name="race_other">
+                        </div>
+
+
+
+                        <!-- Cultural Info -->
+                        <h3>Informações Culturais e Artísticas</h3>
+                        <div class="form-group">
+                            <label>Áreas de Atuação (Marque todas que se aplicam)</label>
+                            <div class="checkbox-list">
+                                <label><input type="checkbox" name="cultural_area" value="bate_bola"> Bate-bola</label>
+                                <label><input type="checkbox" name="cultural_area" value="grafite"> Grafite</label>
+                                <label><input type="checkbox" name="cultural_area" value="capoeira"> Capoeira</label>
+                                <label><input type="checkbox" name="cultural_area" value="musica"> Música</label>
+                                <label><input type="checkbox" name="cultural_area" value="danca"> Dança</label>
+                                <label><input type="checkbox" name="cultural_area" value="maquiagem"> Maquiagem
+                                    Artística</label>
+                                <label><input type="checkbox" name="cultural_area" value="producao"> Produção
+                                    Cultural</label>
+                                <label><input type="checkbox" name="cultural_area" value="fotografia">
+                                    Fotografia</label>
+                                <label><input type="checkbox" name="cultural_area" value="audiovisual">
+                                    Audiovisual</label>
+                                <label><input type="checkbox" id="cultural_other_check" value="outros"> Outros</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group hidden" id="cultural_other_group">
+                            <label for="cultural_other">Quais outros?</label>
+                            <input type="text" id="cultural_other" name="cultural_other">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="experience_time">Tempo de Experiência</label>
+                            <input type="text" id="experience_time" name="experience_time" placeholder="Ex: 5 anos">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="work_description">Descrição do trabalho realizado</label>
+                            <textarea id="work_description" name="work_description" rows="3"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Links e Redes Sociais</label>
+
+                            <div class="input-group">
+                                <label for="portfolio_site">Site / Portfólio</label>
+                                <input type="url" id="portfolio_site" name="portfolio_site"
+                                    placeholder="https://seu-site.com">
+                            </div>
+
+                            <div class="input-group-prefix">
+                                <label for="facebook_user">Facebook</label>
+                                <div class="prefix-wrapper">
+                                    <span class="prefix">facebook.com/</span>
+                                    <input type="text" id="facebook_user" name="facebook_user"
+                                        placeholder="seu.usuario">
+                                </div>
+                            </div>
+
+                            <div class="input-group-prefix">
+                                <label for="instagram_user">Instagram</label>
+                                <div class="prefix-wrapper">
+                                    <span class="prefix">instagram.com/</span>
+                                    <input type="text" id="instagram_user" name="instagram_user"
+                                        placeholder="seu.usuario">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Participa de algum coletivo, grupo ou associação?</label>
+                            <div class="radio-group">
+                                <label><input type="radio" name="collective_participation" value="sim"
+                                        id="collective_yes"> Sim</label>
+                                <label><input type="radio" name="collective_participation" value="nao" checked>
+                                    Não</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group hidden" id="collective_name_group">
+                            <label for="collective_name">Nome do grupo / coletivo</label>
+                            <input type="text" id="collective_name" name="collective_name">
+                        </div>
+
+                        <!-- Terms -->
+                        <h3>Termos e Autorização</h3>
+
+                        <div class="form-group">
+                            <label>Autorizo o uso de imagem para fins institucionais</label>
+                            <div class="radio-group">
+                                <label><input type="radio" name="image_auth" value="sim" required> Sim</label>
+                                <label><input type="radio" name="image_auth" value="nao"> Não</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Aceito participar das atividades conforme regulamento do Adriano Macias</label>
+                            <div class="radio-group">
+                                <label><input type="radio" name="participation_auth" value="sim" required> Sim</label>
+                                <label><input type="radio" name="participation_auth" value="nao"> Não</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Aceito receber comunicados e notificações por WhatsApp e e-mail</label>
+                            <div class="radio-group">
+                                <label><input type="radio" name="comm_auth" value="sim" required> Sim</label>
+                                <label><input type="radio" name="comm_auth" value="nao"> Não</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" id="privacy_policy" name="privacy_policy" required>
+                            <label for="privacy_policy">
+                                Li e concordo com a <a href="#">Política de Privacidade</a>.
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">CADASTRAR</button>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js?v=3"></script>
+</body>
+
+</html>
