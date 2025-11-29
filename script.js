@@ -31,24 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // 3.1 Gender Other (New)
     toggleField('gender', 'gender_other_group', (t) => t.value === 'outro');
 
-    // 4. Cultural Other
-    toggleField('cultural_other_check', 'cultural_other_group', (t) => t.checked);
-
-    // 5. Collective Name
-    // For radios, we need to listen to all in the group or the specific 'yes' one
-    const collectiveYes = document.getElementById('collective_yes');
-    const collectiveNameGroup = document.getElementById('collective_name_group');
-
-    const collectiveRadios = document.getElementsByName('collective_participation');
-    collectiveRadios.forEach(radio => {
-        radio.addEventListener('change', () => {
-            if (collectiveYes.checked) {
-                collectiveNameGroup.classList.remove('hidden');
-            } else {
-                collectiveNameGroup.classList.add('hidden');
-            }
-        });
-    });
+    // 3.1 Gender Other (New)
+    toggleField('gender', 'gender_other_group', (t) => t.value === 'outro');
 
 
     // Handle Form Submission
@@ -75,15 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
         'gender_other': 'entry.128321115',
         'race': 'entry.775361342',
         // 'race_other': 'entry.MISSING', // Handled via logic
-        'cultural_area': 'entry.1352902010', // Checkboxes
-        'cultural_other': 'entry.126170279',
-        'experience_time': 'entry.276516650',
-        'work_description': 'entry.1635954645',
-        'portfolio_site': 'entry.1502285931',
-        'facebook_user': 'entry.1364402133',
-        // 'instagram_user': 'entry.MISSING', // Not in form
-        'collective_participation': 'entry.1150245970',
-        'collective_name': 'entry.554285331', // Added ID
         'image_auth': 'entry.858060365',
         'participation_auth': 'entry.1110992509',
         'comm_auth': 'entry.30914039',
@@ -126,17 +101,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Value Mapping for Google Forms (Internal Value -> Google Form Exact Text)
         const valueMap = {
-            // Cultural Areas
-            'bate_bola': 'Bate-Bola',
-            'grafite': 'Grafite',
-            'capoeira': 'Capoeira',
-            'musica': 'M\u00FAsica', // Música
-            'danca': 'Dan\u00E7a', // Dança
-            'maquiagem': 'Maquiagem Art\u00EDstica', // Maquiagem Artística
-            'producao': 'Produ\u00E7\u00E3o Cultural', // Produção Cultural
-            'fotografia': 'Fotografia',
-            'audiovisual': 'Audiovisual',
-            'outros': 'Outros',
             // Radios & Checkboxes
             'sim': 'Sim',
             'nao': 'N\u00E3o', // Não
@@ -171,68 +135,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (val === null) continue; // Skip only if field is missing entirely
 
-            if (htmlName === 'cultural_area') {
-                // Handle multi-checkboxes
-                const values = formData.getAll(htmlName);
-                values.forEach(v => {
-                    const mappedVal = valueMap[v] || v;
-                    console.log(`${htmlName} [${googleEntryId}]: ${mappedVal}`);
-                    const input = document.createElement('input');
-                    input.type = 'hidden';
-                    input.name = googleEntryId;
-                    input.value = mappedVal;
-                    tempForm.appendChild(input);
-                });
-            }
-            else if (htmlName === 'race') {
-                // Special handling for Race "Outra"
-                if (val === 'outra') {
-                    const otherVal = formData.get('race_other');
-                    if (otherVal) {
-                        console.log(`${htmlName} (Other) [${googleEntryId}]: ${otherVal}`);
-                        const input = document.createElement('input');
-                        input.type = 'hidden';
-                        input.name = googleEntryId;
-                        input.value = otherVal; // Send the text directly to the radio ID
-                        tempForm.appendChild(input);
-                    }
-                } else {
-                    const mappedVal = valueMap[val] || val;
-                    console.log(`${htmlName} [${googleEntryId}]: ${mappedVal}`);
-                    const input = document.createElement('input');
-                    input.type = 'hidden';
-                    input.name = googleEntryId;
-                    input.value = mappedVal;
-                    tempForm.appendChild(input);
-                }
-            }
-            else if (htmlName === 'use_social_name') {
-                // Checkbox expects "Sim"
-                console.log(`${htmlName} [${googleEntryId}]: Sim`);
-                const input = document.createElement('input');
-                input.type = 'hidden';
-                input.name = googleEntryId;
-                input.value = 'Sim';
-                tempForm.appendChild(input);
-            }
-            else if (htmlName === 'facebook_user') {
-                const prefix = 'facebook.com/';
-                console.log(`${htmlName} [${googleEntryId}]: ${prefix + val}`);
-                const input = document.createElement('input');
-                input.type = 'hidden';
-                input.name = googleEntryId;
-                input.value = prefix + val;
-                tempForm.appendChild(input);
-            }
-            else if (htmlName === 'instagram_user') {
-                const prefix = 'instagram.com/';
-                console.log(`${htmlName} [${googleEntryId}]: ${prefix + val}`);
-                const input = document.createElement('input');
-                input.type = 'hidden';
-                input.name = googleEntryId;
-                input.value = prefix + val;
-                tempForm.appendChild(input);
-            }
             else if (htmlName === 'privacy_policy') {
                 // "Li e concordo com a Política de Privacidade"
                 const policyVal = 'Li e concordo com a Pol\u00EDtica de Privacidade';
@@ -276,8 +178,6 @@ document.addEventListener('DOMContentLoaded', () => {
         // Add sentinel fields for checkboxes/radios (Required for validation)
         const sentinels = [
             'entry.1491378407_sentinel', // Social Name
-            'entry.1352902010_sentinel', // Cultural Areas
-            'entry.1150245970_sentinel', // Collective Participation
             'entry.858060365_sentinel',  // Image Auth
             'entry.1110992509_sentinel', // Participation Auth
             'entry.30914039_sentinel',   // Comm Auth
