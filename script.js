@@ -39,7 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('registrationForm');
 
     // Google Forms Configuration
-    const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfuj3MeHaFYq8pndme4um0ED9SXqiE6zBHGCnjmTKl05af_dQ/formResponse';
+    // Google Forms Configuration
+    const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSe_irCUk6AaknPnsvl0h5fzsfl6_ZPKzF7HHBwr7V0-OyGbFg/formResponse';
 
     // Field Mapping (HTML Name -> Google Entry ID)
     const fieldMapping = {
@@ -49,6 +50,10 @@ document.addEventListener('DOMContentLoaded', () => {
         'email': 'entry.477940854',
         'phone': 'entry.1924454278',
         'dob': 'entry.2032571322',
+        'cpf': 'entry.5107182',
+        'voter_id': 'entry.1538118101',
+        'voter_zone': 'entry.670329330',
+        'voter_section': 'entry.904560871',
         'cep': 'entry.1452228749',
         'address': 'entry.1726215924',
         'neighborhood': 'entry.1526279772',
@@ -135,6 +140,55 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (val === null) continue; // Skip only if field is missing entirely
 
+            else if (htmlName === 'race') {
+                // Special handling for Race "Outra"
+                if (val === 'outra') {
+                    const otherVal = formData.get('race_other');
+                    if (otherVal) {
+                        console.log(`${htmlName} (Other) [${googleEntryId}]: ${otherVal}`);
+                        const input = document.createElement('input');
+                        input.type = 'hidden';
+                        input.name = googleEntryId;
+                        input.value = otherVal; // Send the text directly to the radio ID
+                        tempForm.appendChild(input);
+                    }
+                } else {
+                    const mappedVal = valueMap[val] || val;
+                    console.log(`${htmlName} [${googleEntryId}]: ${mappedVal}`);
+                    const input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = googleEntryId;
+                    input.value = mappedVal;
+                    tempForm.appendChild(input);
+                }
+            }
+            else if (htmlName === 'use_social_name') {
+                // Checkbox expects "Sim"
+                console.log(`${htmlName} [${googleEntryId}]: Sim`);
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = googleEntryId;
+                input.value = 'Sim';
+                tempForm.appendChild(input);
+            }
+            else if (htmlName === 'facebook_user') {
+                const prefix = 'facebook.com/';
+                console.log(`${htmlName} [${googleEntryId}]: ${prefix + val}`);
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = googleEntryId;
+                input.value = prefix + val;
+                tempForm.appendChild(input);
+            }
+            else if (htmlName === 'instagram_user') {
+                const prefix = 'instagram.com/';
+                console.log(`${htmlName} [${googleEntryId}]: ${prefix + val}`);
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = googleEntryId;
+                input.value = prefix + val;
+                tempForm.appendChild(input);
+            }
             else if (htmlName === 'privacy_policy') {
                 // "Li e concordo com a Política de Privacidade"
                 const policyVal = 'Li e concordo com a Pol\u00EDtica de Privacidade';
@@ -204,7 +258,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             alert('Cadastro realizado com sucesso! Você será redirecionado para nossa comunidade no WhatsApp.');
             // Redirect to WhatsApp Community
-            window.location.href = 'https://chat.whatsapp.com/HPNHqYTamYD5CONE0WgUt0';
+            window.location.href = 'https://chat.whatsapp.com/CTPLBPCmvZ8Dt3zYrlb0An';
             form.reset();
 
             // Reset conditionals

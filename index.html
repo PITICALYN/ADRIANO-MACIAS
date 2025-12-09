@@ -90,6 +90,28 @@
                             <input type="date" id="dob" name="dob">
                         </div>
 
+                        <div class="form-group">
+                            <label for="cpf">CPF <span class="required">*</span></label>
+                            <input type="text" id="cpf" name="cpf" required placeholder="000.000.000-00" maxlength="14">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="voter_id">Título de Eleitor <span class="required">*</span></label>
+                            <input type="text" id="voter_id" name="voter_id" required
+                                placeholder="Seu título de eleitor">
+                        </div>
+
+                        <div class="form-row" style="display: flex; gap: 15px;">
+                            <div class="form-group" style="flex: 1;">
+                                <label for="voter_zone">Zona Eleitoral <span class="required">*</span></label>
+                                <input type="text" id="voter_zone" name="voter_zone" required placeholder="Zona">
+                            </div>
+                            <div class="form-group" style="flex: 1;">
+                                <label for="voter_section">Seção <span class="required">*</span></label>
+                                <input type="text" id="voter_section" name="voter_section" required placeholder="Seção">
+                            </div>
+                        </div>
+
                         <!-- Address -->
                         <h3>Endereço</h3>
                         <div class="form-group">
