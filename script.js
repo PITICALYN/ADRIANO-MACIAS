@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'race': 'entry.775361342',
         // 'race_other': 'entry.MISSING', // Handled via logic
         'image_auth': 'entry.858060365',
-        'participation_auth': 'entry.1110992509',
+        'participation_auth': 'entry.1110992509', // Aceito Participar das atividades conforme regulamento do Adriano Macias
         'comm_auth': 'entry.30914039',
         'privacy_policy': 'entry.1778170175'
     };
